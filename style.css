@@ -1,0 +1,119 @@
+:root {
+  --ink: #1c1d2b;
+  --ink-2: #13142a;
+  --paper: #f6f7fb;
+  --mark: #ffe14d;
+  --slate: #596078;
+  --line: #dfe2ec;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+html { scroll-padding-top: 4.5rem; }
+
+body {
+  font-family: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, .navbar-brand, .cover__title, .stat, .price__amount { font-family: var(--serif); }
+h1 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; }
+h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.01em; }
+
+:focus-visible { outline: 3px solid #3b3fd8; outline-offset: 3px; }
+.hero :focus-visible, .download :focus-visible, footer :focus-visible { outline-color: var(--mark); }
+
+.bg-ink { background: var(--ink); border-top: 3px solid var(--mark); }
+.bg-paper { background: var(--paper); }
+.text-slate { color: var(--slate); }
+.reading-width { max-width: 36rem; }
+.section { padding: 5rem 0; }
+.stars { color: var(--mark); letter-spacing: 0.1em; }
+.bg-paper .stars { color: #d9a400; }
+
+/* Nút */
+.btn { border-radius: 0.6rem; font-weight: 600; transition: transform 0.15s, background 0.15s; }
+.btn-lg { padding: 0.8rem 1.6rem; }
+.btn-mark { background: var(--mark); color: var(--ink); border: 0; }
+.btn-mark:hover, .btn-mark:focus { background: #ffd400; color: var(--ink); transform: translateY(-1px); }
+
+/* Điều hướng */
+.nav-glass { background: rgba(19, 20, 42, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.navbar-brand { font-size: 1.4rem; font-weight: 700; }
+.nav-link { font-weight: 500; }
+
+/* Header */
+.hero {
+  padding: 4.5rem 0 2rem;
+  background:
+    radial-gradient(50rem 28rem at 85% 15%, rgba(255, 225, 77, 0.16), transparent 65%),
+    linear-gradient(165deg, var(--ink) 0%, var(--ink-2) 100%);
+}
+.cover {
+  position: relative;
+  width: min(100%, 18rem);
+  aspect-ratio: 2 / 3;
+  padding: 1.75rem 1.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--ink);
+  border-radius: 0.25rem 0.5rem 0.5rem 0.25rem;
+  background:
+    linear-gradient(90deg, #c9cde0 0, #c9cde0 0.5rem, rgba(0, 0, 0, 0.08) 0.5rem, transparent 1rem),
+    linear-gradient(135deg, #fff, var(--paper));
+  box-shadow: 1.25rem 1.25rem 0 var(--mark), 2rem 2.5rem 4rem rgba(0, 0, 0, 0.45);
+  transform: perspective(1200px) rotateY(-14deg) rotateX(4deg);
+  transition: transform 0.4s;
+}
+.cover:hover { transform: none; }
+.cover__mark { display: block; width: 3.5rem; height: 0.6rem; background: var(--mark); }
+.cover__title { font-size: 2.5rem; font-weight: 700; line-height: 1.05; }
+@media (max-width: 767.98px) { .cover { transform: none; } }
+
+/* Tác giả */
+.avatar {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--mark);
+  font: 700 3.5rem var(--serif);
+  box-shadow: 0 0 0 0.5rem var(--paper), 0 0 0 0.6rem var(--line);
+}
+.stat { display: block; font-size: 2rem; line-height: 1.1; color: var(--ink); }
+
+/* Nội dung */
+.feature { height: 100%; padding: 1.75rem; background: #fff; border: 1px solid var(--line); border-radius: 0.75rem; }
+.feature .bi {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--mark);
+  font-size: 1.2rem;
+}
+
+/* Giá */
+.price { position: relative; height: 100%; padding: 2.25rem 2rem; background: #fff; border: 1px solid var(--line); border-radius: 1rem; }
+.price--best { border: 2px solid var(--ink); box-shadow: 0.6rem 0.6rem 0 var(--mark); }
+.price__badge { position: absolute; top: -0.85rem; left: 2rem; padding: 0.2rem 0.8rem; border-radius: 2rem; background: var(--ink); color: var(--mark); font-size: 0.8rem; font-weight: 600; }
+.price__amount { margin-bottom: 1.25rem; font-size: 2.4rem; font-weight: 700; }
+.price li { position: relative; padding: 0.35rem 0 0.35rem 1.6rem; }
+.price li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; color: var(--ink); }
+
+/* Đọc thử */
+.download {
+  background: radial-gradient(40rem 20rem at 15% 100%, rgba(255, 225, 77, 0.14), transparent 65%), var(--ink);
+}
+
+/* Độc giả */
+.quote { height: 100%; margin: 0; padding: 1.75rem; background: #fff; border: 1px solid var(--line); border-radius: 1rem; }
+.quote blockquote { font-size: 1.05rem; }
